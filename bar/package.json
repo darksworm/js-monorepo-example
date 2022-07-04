@@ -1,0 +1,15 @@
+{
+  "name": "bar",
+  "version": "1.0.0",
+  "description": "sends bars",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "multi-semantic-release": "^2.13.0"
+  },
+  "devDependencies": {
+    "mocha": "^10.0.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  }
+}

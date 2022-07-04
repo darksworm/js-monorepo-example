@@ -1,0 +1,18 @@
+{
+  "name": "monorepo_example",
+  "license": "GPL-3.0-or-later",
+  "private": true,
+  "workspaces": [
+    "./*"
+  ],
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/github"
+    ],
+    "branches": [
+      "main"
+    ]
+  }
+}

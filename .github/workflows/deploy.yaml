@@ -1,0 +1,31 @@
+name: Deploy
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'version to be deployed'
+        required: true
+      package:
+        description: 'package to be deployed'
+        required: true
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy-application:
+    runs-on: ubuntu-latest
+    container: amaysim/serverless:3.19.0
+    env:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+    steps:
+      - run: echo Deploying ${{ github.event.inputs.package }}@${{ github.event.inputs.version }}
+
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Deploying package
+        run: echo TODO

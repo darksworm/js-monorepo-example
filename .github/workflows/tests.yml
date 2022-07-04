@@ -1,0 +1,62 @@
+name: Tests
+
+on:
+  push:
+    branches:
+      - '*'
+    tags-ignore:
+      - v*
+    paths:
+      - bar/**
+      - foo/**
+
+jobs:
+  find-changed-projects:
+    runs-on: ubuntu-latest
+    outputs:
+      bar: ${{ steps.filter.outputs.bar }}
+      foo: ${{ steps.filter.outputs.foo }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            foo:
+              - 'foo/**'
+            bar:
+              - 'bar/**'
+
+  foo:
+    if: needs.find-changed-projects.outputs.foo == 'true'
+    runs-on: ubuntu-latest
+    needs: [find-changed-projects]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+
+      - name: Install dependencies
+        run: yarn workspace foo install
+
+      - name: Run tests
+        run: yarn test
+        working-directory: foo
+
+  bar:
+    if: needs.find-changed-projects.outputs.bar == 'true'
+    runs-on: ubuntu-latest
+    needs: [find-changed-projects]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+
+      - name: Install dependencies
+        run: yarn workspace bar install
+
+      - name: Run tests
+        run: yarn test
+        working-directory: bar

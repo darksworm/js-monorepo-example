@@ -1,0 +1,3 @@
+service: foo
+frameworkVersion: '3'
+configValidationMode: error

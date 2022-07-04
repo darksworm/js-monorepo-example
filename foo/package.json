@@ -1,0 +1,13 @@
+{
+  "name": "foo",
+  "version": "1.0.0",
+  "description": "sends foos",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "^10.0.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  }
+}
