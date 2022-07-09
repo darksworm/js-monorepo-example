@@ -1,4 +1,4 @@
 export default function bar()
 {
-    return "bars for days"
+    return "bars for many days"
 }
