@@ -1,4 +1,3 @@
-export default function bar()
-{
-    return "bars for many days"
+export default function bar() {
+    return "extreme bars for many days"
 }
