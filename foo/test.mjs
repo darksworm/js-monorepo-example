@@ -3,6 +3,6 @@ import foo from './foo.mjs';
 
 describe('foo module', () => {
     it('spits foos for days', () => {
-        assert.strictEqual("foos for days", foo())
+        assert.strictEqual("big foos for days", foo())
     })
 })

@@ -1,3 +1,3 @@
 export default function foo() {
-    return "foos for days"
+    return "big foos for days"
 }
