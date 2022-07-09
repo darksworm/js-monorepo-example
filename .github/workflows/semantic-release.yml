@@ -1,5 +1,9 @@
 name: Semantic Release
 
+concurrency:
+  group: "all"
+  cancel-in-progress: true
+
 on:
   workflow_run:
     workflows: [ Tests ]

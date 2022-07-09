@@ -1,4 +1,9 @@
 name: Deploy
+
+concurrency:
+  group: ${{ github.event.inputs.package }}
+  cancel-in-progress: true
+
 on:
   workflow_dispatch:
     inputs:
