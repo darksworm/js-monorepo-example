@@ -22,7 +22,7 @@ jobs:
         id: release
         with:
           github-token: ${{ secrets.GH_TOKEN }}
-          dry-run: true
+          dry-run: false
 
   trigger-deploy-job:
     needs: [ release ]
